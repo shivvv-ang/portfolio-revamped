@@ -139,7 +139,7 @@ export const socials = [
   { name: "GitHub", href: "https://github.com/shivvv-ang" },
 ];
 
-export const titles = ["Frontend", "Backend", "Fullstack"];
+export const titles = ["Frontend", "Backend", "Fullstack","Creative"];
 
 export const timelineData = [
   { title: "May 2025 – Aug 2025", company: "DevX Technology", role: "Frontend Developer Trainee", summary: "Converted Figma designs into fully responsive Shopify pages and improved page performance.", points: ["Implemented page performance optimizations", "Learned Shopify Admin and Liquid", "Converted Figma designs into responsive Shopify pages with 100% design fidelity",], skills: ["HTML", "CSS", "JavaScript", "Shopify", "Liquid", "Git", "GitHub"],
