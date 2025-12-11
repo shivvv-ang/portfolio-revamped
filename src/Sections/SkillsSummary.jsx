@@ -78,13 +78,10 @@ const SkillsSummary = () => {
     <section
       className="
     animated-titles 
-    relative w-full overflow-hidden text-center
-    [&>.title:nth-child(odd)]:bg-[#E7E5D9]
-    [&>.title:nth-child(even)]:bg-[#F40C3F]
-  "
+    relative w-full overflow-hidden text-center"
     >
       
-      <div className="title h-[65svh] flex items-center">
+      <div className="title h-[65svh] flex items-center bg-[#E7E5D9]">
         <div className="title-container relative w-full flex justify-center items-center will-change-transform px-6">
           <h1
             className="
@@ -104,7 +101,7 @@ const SkillsSummary = () => {
       </div>
 
      
-      <div className="title h-[65svh] flex items-center">
+      <div className="title h-[65svh] flex items-center bg-[#F40C3F]">
         <div className="title-container relative w-full flex justify-center items-center will-change-transform px-6">
           <h1
             className="
@@ -124,7 +121,7 @@ const SkillsSummary = () => {
       </div>
 
      
-      <div className="title h-[65svh] flex items-center">
+      <div className="title h-[65svh] flex items-center bg-[#E7E5D9]">
         <div className="title-container relative w-full flex justify-center items-center will-change-transform px-6">
           <h1
             className="
@@ -143,7 +140,7 @@ const SkillsSummary = () => {
         </div>
       </div>
 
-      <div className="title h-[65svh] flex items-center">
+      <div className="title h-[65svh] flex items-center bg-[#F40C3F]">
         <div className="title-container relative w-full flex justify-center items-center will-change-transform px-6">
           <h1
             className="

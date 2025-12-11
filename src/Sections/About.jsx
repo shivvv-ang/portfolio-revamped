@@ -7,14 +7,13 @@ import gsap from "gsap";
 const About = () => {
     const imgRef = useRef();
     const text = `Self-taught developer with a deep love for building and improving things.`
-  const aboutText = `I got into programming because I love exploring, building, and solving problems. 
-    I began with machine learning and Flutter, then shifted into full-stack web development with HTML, CSS, JavaScript, React, Node.js, and MongoDB.
+    const aboutText = `I got into programming because I enjoy figuring out how things work and building things that feel useful.
+    I started with machine learning and Flutter before moving into full-stack development with HTML, CSS, JavaScript, React, Node.js, and MongoDB.
     
-    Along the way, I picked up tools like Redux, Zustand, Tailwind, sockets, gRPC, RabbitMQ, BullMQ, Redis, and Firebase—building projects end-to-end and learning by doing.
+    Over time, I learned tools like Redux, Zustand, Tailwind, WebSockets, gRPC, RabbitMQ, BullMQ, Redis, and Firebase by using them in projects and experimenting on my own.
     
-    Coming from a mechanical engineering background, I taught myself CS fundamentals like DSA, DBMS, and OOP through online courses and consistent practice.
-    
-    I enjoy debugging, understanding why systems break, optimizing performance, and contributing to clean, scalable architectures.
+    Coming from a mechanical engineering background, I picked up CS fundamentals like DSA, DBMS, and OOP through online courses and regular practice.
+    I like understanding problems deeply, fixing what isn’t working, and writing code that’s simple, reliable, and easy to maintain.
     `
 
 useGSAP(() => {

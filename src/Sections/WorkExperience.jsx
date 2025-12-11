@@ -109,7 +109,7 @@ const WorkExperience = () => {
                         </div>
 
                         <div className="relative pl-12 pr-2 md:pl-4 md:pr-4 w-full">
-                            <div className="bg-[#F40C3F] p-4 md:p-8 space-y-4">
+                            <div className="p-4 md:p-8 space-y-4">
                                 <p
                                     className="text-[#160000] font-medium leading-relaxed text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[26px]"
                                     style={{ fontFamily: "'Cormorant Garamond', serif" }}

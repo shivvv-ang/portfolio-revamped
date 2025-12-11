@@ -102,7 +102,7 @@ const Projects = () => {
       ref={stickySectionRef}
       className="steps relative w-screen h-screen overflow-x-hidden overflow-y-visible bg-[#E7E5D9] p-4"
     >
-      {/* COUNTER AREA */}
+ 
       <div className="step-counter absolute flex flex-col space-y-2">
         <h1
           className="uppercase font-black leading-none tracking-[-0.04em] text-[clamp(40px,10vw,120px)]"
@@ -129,7 +129,6 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* CARDS */}
       <div
         ref={cardsContainerRef}
         className="cards absolute top-[25%] left-[50%] w-full h-full -translate-x-1/2 -translate-y-1/2"
@@ -149,7 +148,7 @@ const Projects = () => {
               shadow-[0_0_25px_rgba(244,12,63,0.3)]
               "
           >
-            {/* HEADER */}
+        
             <div className="flex items-center justify-between mb-3 md:mb-4 shrink-0">
               <h2
                 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#160000] line-clamp-1 pr-2"
@@ -166,13 +165,11 @@ const Projects = () => {
               </span>
             </div>
 
-            {/* IMAGE */}
             <div className="rounded-xl overflow-hidden border-4 border-[#160000] shadow-inner h-36 sm:h-40 md:h-48 mb-3 md:mb-4 shrink-0">
               <img className="w-full h-full object-cover" src={data.image} alt={data.title} />
             </div>
 
-            {/* DESCRIPTION */}
-            <div className="mb-6 shrink-0">
+            <div className="mb-8 shrink-0">
               <p
                 className="text-xs sm:text-sm md:text-base text-[#160000] font-medium leading-relaxed line-clamp-4"
                 style={{ fontFamily: "'Manrope', sans-serif" }}
@@ -181,7 +178,6 @@ const Projects = () => {
               </p>
             </div>
 
-            {/* TECH STACK - Scrollable if many tags */}
             <div className="mb-3 md:mb-4 grow overflow-y-auto scrollbar-thin scrollbar-thumb-[#F40C3F] scrollbar-track-transparent">
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {data.techStack.map((tech) => (
@@ -195,7 +191,6 @@ const Projects = () => {
               </div>
             </div>
 
-            {/* FOOTER */}
             <div className="flex items-center justify-between border-t-2 border-[#160000] pt-3 md:pt-4 text-[#160000] font-medium shrink-0 mt-auto">
               <div className="text-[10px] sm:text-xs md:text-sm w-1/2 pr-1 sm:pr-2">
                 <span className="font-bold">Weakness:</span> {data.weakness}

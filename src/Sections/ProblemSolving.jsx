@@ -2,19 +2,12 @@ import  { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { platforms } from "../Constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProblemSolving = () => {
-  const platforms = [
-    { name: "LeetCode", solved: 348, ctaLink:"https://leetcode.com/u/shiv_ang/" },
-    { name: "GeeksforGeeks", solved: 119, ctaLink:"https://www.geeksforgeeks.org/profile/shivanghioo1?tab=activity" },
-    { name: "CodeChef", solved: 12, ctaLink:"https://www.codechef.com/users/shiv_ang" },
-    { name: "Codeforces", solved: 2, ctaLink:"https://codeforces.com/profile/The_Almighty_Lord" },
-    { name: "HackerRank", solved: 49, ctaLink:"https://www.hackerrank.com/profile/shivanghariakar" },
-    { name: "Code360", solved: 53, ctaLink:"https://www.naukri.com/code360/profile/41d79573-7a72-417a-8d86-f1c824bf85b5" },
-  ];
-
+ 
   const sectionRef = useRef(null);
   const numberRefs = useRef([]);
 

@@ -60,7 +60,7 @@ const Skills = () => {
                     >
                         <div className="flex items-center justify-between gap-4 font-light">
                             <div className="flex flex-col gap-6">
-                                {/* Title */}
+                               
                                 <h2
                                     className="text-4xl lg:text-5xl text-[#160000] tracking-wide font-bold"
                                     style={{ fontFamily: "'Cormorant Garamond', serif" }}
@@ -68,7 +68,6 @@ const Skills = () => {
                                     {skill.title}
                                 </h2>
 
-                                {/* Description */}
                                 <p
                                     className="text-xl leading-relaxed tracking-widest lg:text-2xl font-medium"
                                     style={{ fontFamily: "'Manrope', sans-serif" }}
@@ -76,7 +75,6 @@ const Skills = () => {
                                     {skill.description}
                                 </p>
 
-                                {/* Items */}
                                 <div
                                     className="flex flex-col gap-2 text-2xl sm:gap-4 lg:text-3xl text-[#E7E5D9] font-semibold"
                                     style={{ fontFamily: "'Raleway', sans-serif" }}

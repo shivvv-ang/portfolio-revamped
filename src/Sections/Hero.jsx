@@ -4,7 +4,6 @@ import { SplitText } from "gsap/all";
 import { titles } from "../Constants";
 import PortfolioReveal from "../Components/PortfolioReveal";
 
-
 gsap.registerPlugin(SplitText);
 
 export default function Hero() {
@@ -19,7 +18,7 @@ export default function Hero() {
     const animateText = () => {
       tl.clear();
 
-      // animate IN
+ 
       tl.from(splitext.chars, {
         opacity: 0,
         y: 80,
@@ -29,7 +28,7 @@ export default function Hero() {
         ease: "power3.out",
       });
 
-      // animate OUT
+ 
       tl.to(splitext.chars, {
         opacity: 0,
         y: -80,
@@ -64,7 +63,7 @@ export default function Hero() {
 
   return (
     <>
-    {/* <PortfolioReveal/> */}
+    <PortfolioReveal/> 
     <section  id="home" className="bg-[#F40C3F] h-screen w-screen relative overflow-hidden">
      
      <div className="absolute inset-0 flex justify-center items-center pointer-events-none z-0">

@@ -149,3 +149,12 @@ export const timelineData = [
     logo:"https://imgs.search.brave.com/KeBiKz2sESqSYkHhNUFvLjm7aqPBmbDKBDBmlEYf8ek/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/c2FuaXR5LmlvL2lt/YWdlcy81YTcxMXVi/ZC9wcm9kdWN0aW9u/L2M1NWQ2ZmViOGZk/NTgzZDNjZjg3ZTM0/YjdiNDJlMzRiYTM0/NTdjNjYtNjR4NjQu/c3ZnP3c9MTI4Jmg9/MTI4"
   },
 ];
+
+export const platforms = [
+    { name: "LeetCode", solved: 348, ctaLink:"https://leetcode.com/u/shiv_ang/" },
+    { name: "GeeksforGeeks", solved: 119, ctaLink:"https://www.geeksforgeeks.org/profile/shivanghioo1?tab=activity" },
+    { name: "CodeChef", solved: 12, ctaLink:"https://www.codechef.com/users/shiv_ang" },
+    { name: "Codeforces", solved: 2, ctaLink:"https://codeforces.com/profile/The_Almighty_Lord" },
+    { name: "HackerRank", solved: 49, ctaLink:"https://www.hackerrank.com/profile/shivanghariakar" },
+    { name: "Code360", solved: 53, ctaLink:"https://www.naukri.com/code360/profile/41d79573-7a72-417a-8d86-f1c824bf85b5" },
+  ];

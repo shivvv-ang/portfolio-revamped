@@ -49,15 +49,9 @@ const Navbar = () => {
 
   useGSAP(() => {
    
-    // Initial states 
-
     gsap.set(navref.current, { xPercent: 100 });
     gsap.set(linksref.current, { autoAlpha: 0, y: 30, scale: 0.95 });
     gsap.set(contactref.current, { autoAlpha: 0, y: 20 });
-
-
-  
-    // Main timeline: nav panel + links
 
     tl.current = gsap.timeline({ paused: true });
     tl.current
@@ -68,8 +62,6 @@ const Navbar = () => {
         "<+0.15"
       );
 
-    // Burger animation (cross)
-   
     itl.current = gsap.timeline({ paused: true });
     itl.current
       .to(toplineref.current, { rotate: 45, y: 3.3, duration: 0.3, ease: "power2.inOut" }, 0)
@@ -77,15 +69,12 @@ const Navbar = () => {
   });
 
 
-  // Toggle menu
-
   const toggleMenu = useCallback(() => {
     const tlInstance = tl.current;
     const itlInstance = itl.current;
     const contact = contactref.current;
 
     if (isOpen) {
-      // Close
       tlInstance?.reverse();
       itlInstance?.reverse();
 
@@ -96,7 +85,6 @@ const Navbar = () => {
         ease: "power2.in",
       });
     } else {
-      // Open
       tlInstance?.play();
       itlInstance?.play();
 
@@ -107,13 +95,11 @@ const Navbar = () => {
         ease: "power2.out",
       });
     }
-
     setIsOpen((p) => !p);
   }, [isOpen]);
   
 
 
-  // Show/hide burger on scroll
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -198,7 +184,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* NAV PANEL */}
       <nav
         ref={navref}
         className="fixed z-50 flex flex-col justify-between w-full h-full px-10 uppercase bg-[#E7E5D9] text-[#F40C3F] py-8 gap-y-10 md:w-1/2 md:left-1/2"
@@ -229,11 +214,10 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* CONTACT SECTION */}
         <div ref={contactref} className="flex flex-col flex-wrap justify-between gap-8 md:flex-row">
           <div className="font-semibold">
             <p className="tracking-wider text-[#160000] font-[Raleway]">E-mail</p>
-            <a href="mailto:shivangramakanthariakar@gmail.com" className="gsap-hover text-xl tracking-widest lowercase text-[#F40C3F] font-[Manrope]">
+            <a href="mailto:shivangramakanthariakar@gmail.com" className="gsap-hover text-base md:text-xl tracking-widest lowercase text-[#F40C3F] font-[Manrope]">
               shivangramakanthariakar@gmail.com
             </a>
           </div>
@@ -255,7 +239,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* BURGER BUTTON */}
       <div
         onClick={(e) => {
           e.stopPropagation(); 
