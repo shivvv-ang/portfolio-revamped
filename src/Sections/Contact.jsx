@@ -107,7 +107,7 @@ const Contact = () => {
                     <div className="social-link">
                           <h2 className="font-extrabold text-2xl tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>Resume</h2>
                           <div className="w-full h-px my-2 bg-[#E7E5D9]" />
-                          <a href={"https://drive.google.com/file/d/1nJqPcuaFPWhSTrezi8Tlt0C1rEdSX2qs/view?usp=sharing"} target="_blank" rel="noopener noreferrer" className="gsap-link relative text-xl tracking-wider lowercase md:text-2xl lg:text-3xl cursor-pointer">
+                          <a href={"https://drive.google.com/file/d/1nJqPcuaFPWhSTrezi8Tlt0C1rEdSX2qs/view?usp=drivesdk"} target="_blank" rel="noopener noreferrer" className="gsap-link relative text-xl tracking-wider lowercase md:text-2xl lg:text-3xl cursor-pointer">
                               view resume →
                           </a>
                     </div>
