@@ -35,19 +35,24 @@ const Contact = () => {
     ];
       
       
-    useGSAP(()=>{
-        gsap.from(".social-link",{
-            y:100,
-            opacity:0,
-            delay:0.5,
-            duration:1,
-            stagger:0.3,
-            ease:"back.out",
-            scrollTrigger:{
-                trigger:".social-link"
-            }
-        })
-    },[])
+    useGSAP(() => {
+        gsap.from(".social-link", {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.3,
+            ease: "power3.out",
+
+            scrollTrigger: {
+                trigger: ".social-link",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play reverse play reverse",
+                once: false,
+            },
+        });
+    }, []);
+      
 
     useGSAP(() => {
         const links = document.querySelectorAll(".gsap-link");
@@ -87,7 +92,7 @@ const Contact = () => {
     
   return (
       <section id="contact" className="flex flex-col justify-between min-h-screen bg-[#F40C3F]">
-        <div>
+             <div className="flex flex-col justify-between gap-16">
               <AnimatedHeaderSection
                   subTitle={"Let’s Build Something Together"}
                   title={"Contact"}
@@ -95,36 +100,36 @@ const Contact = () => {
                   textColor={"text-[#E7E5D9]"}
                   withScrollTrigger={true}
               />
-              <div className="flex px-10 font-light text-[#E7E5D9] uppercase lg:text-[32px] text-[26px] leading-none mb-10">
-                <div className="flex flex-col w-full gap-10">
-                    <div className="social-link">
-                          <h2 className="font-extrabold text-2xl tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>E-mail</h2>
-                          <div className="w-full h-px my-2 bg-[#E7E5D9]"/>
-                          <a href="mailto:shivangramakanthariakar@gmail.com" className="gsap-link relative text-xl tracking-wider lowercase md:text-2xl lg:text-3xl cursor-pointer">
-                            shivangramakanthariakar@gmail.com
-                        </a>
-                    </div>
-                    <div className="social-link">
-                          <h2 className="font-extrabold text-2xl tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>Resume</h2>
+              <div className="flex px-10 font-light text-[#E7E5D9] leading-none uppercase">
+                  <div className="flex flex-col w-full gap-10">
+                      <div className="social-link">
+                          <h2 className="font-extrabold text-[clamp(0.9rem,2.5vw,1.25rem)] tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>E-mail</h2>
                           <div className="w-full h-px my-2 bg-[#E7E5D9]" />
-                          <a href={"https://drive.google.com/file/d/1nJqPcuaFPWhSTrezi8Tlt0C1rEdSX2qs/view?usp=drivesdk"} target="_blank" rel="noopener noreferrer" className="gsap-link relative text-xl tracking-wider lowercase md:text-2xl lg:text-3xl cursor-pointer">
+                          <a href="mailto:shivangramakanthariakar@gmail.com" className="gsap-link relative text-[clamp(1rem,3.2vw,1.75rem)] tracking-wider lowercase cursor-pointer">
+                              shivangramakanthariakar@gmail.com
+                          </a>
+                      </div>
+                      <div className="social-link">
+                          <h2 className="font-extrabold text-[clamp(0.9rem,2.5vw,1.25rem)] tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>Resume</h2>
+                          <div className="w-full h-px my-2 bg-[#E7E5D9]" />
+                          <a href={"https://drive.google.com/file/d/1nJqPcuaFPWhSTrezi8Tlt0C1rEdSX2qs/view?usp=drivesdk"} target="_blank" rel="noopener noreferrer" className="gsap-link relative text-[clamp(1rem,3.2vw,1.75rem)] tracking-wider lowercase cursor-pointer">
                               view resume →
                           </a>
-                    </div>
+                      </div>
                       <div className="social-link">
-                          <h2 className="font-extrabold text-2xl tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>Elsewhere on the Web</h2>
+                          <h2 className="font-extrabold text-[clamp(0.9rem,2.5vw,1.25rem)] tracking-tight text-[#160000]" style={{ fontFamily: "'Manrope', sans-serif" }}>Elsewhere on the Web</h2>
                           <div className="w-full h-px my-2 bg-[#E7E5D9]" />
                           <div className="flex flex-wrap gap-2">
-                            {socials.map((social,index)=>(
-                                <a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="gsap-link relative text-xs leading-loose tracking-wide uppercase md:text-sm" style={{ fontFamily: "'Manrope', sans-serif" }}>
-                                    {`{ ${social.name} }`}
-                                </a>
-                            ))}
+                              {socials.map((social, index) => (
+                                  <a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="gsap-link relative text-[clamp(0.65rem,2vw,0.85rem)] leading-loose tracking-wide uppercase" style={{ fontFamily: "'Manrope', sans-serif" }}>
+                                      {`{ ${social.name} }`}
+                                  </a>
+                              ))}
                           </div>
                       </div>
-                </div>
+                  </div>
               </div>
-        </div>
+             </div>
           <Marquee items={items} className="text-[#F40C3F] bg-[#E7E5D9] font-bold tracking-widest"/>
       </section>
   )
