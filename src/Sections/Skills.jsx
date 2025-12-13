@@ -14,21 +14,26 @@ const Skills = () => {
     const isDesktop = useMediaQuery({ minWidth: "48rem" });
 
     useGSAP(() => {
-        serviceRefs.current.forEach((el) => {
-            if (!el) return;
+        const ctx = gsap.context(() => {
+            serviceRefs.current.forEach((el) => {
+                if (!el) return;
 
-            gsap.from(el, {
-                y: 200,
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 80%",
-                },
-                duration: 1,
-                ease: "circ.out",
+                gsap.from(el, {
+                    y: 200,
+                    duration: 1,
+                    ease: "circ.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        once: true,
+                    },
+                });
             });
         });
+
+        return () => ctx.revert();
     }, []);
-    
+      
     return (
         <section
             id="skills"
@@ -49,6 +54,7 @@ const Skills = () => {
                         key={index}
                         ref={(el) => (serviceRefs.current[index] = el)}
                         className="sticky px-10 pt-6 pb-12 text-[#E7E5D9] bg-[#F40C3F] border-t-2"
+                        tabIndex={0}
                         style={
                             isDesktop
                                 ? {
