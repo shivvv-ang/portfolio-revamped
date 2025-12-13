@@ -24,83 +24,118 @@ const Projects = () => {
   };
 
 
-  useGSAP(
-    () => {
-      const stickySection = stickySectionRef.current;
-      const cards = cardsRef.current;
-      const countContainer = countContainerRef.current;
+  useGSAP(() => {
+    const stickySection = stickySectionRef.current;
+    const cards = cardsRef.current;
+    const countContainer = countContainerRef.current;
+    const totalCards = cards.length;
 
-      const totalCards = cards.length;
-      const stickyHeight = window.innerHeight * (totalCards - 2);
+    const arcAngle = Math.PI * 0.4;
+    const startAngle = Math.PI / 2 - arcAngle / 2;
 
-      const getRadius = () => {
-        const width = window.innerWidth;
-        if (width < 900) return width * 7.5;
-        if (width <= 1100) return width * 4;
-        return width * 2.5;
-      };
+    const getRadius = () => {
+      const w = window.innerWidth;
+      if (w < 640) return w * 5;
+      if (w < 1024) return w * 3.5;
+      return w * 2.5;
+    };
 
-      const arcAngle = Math.PI * 0.4;
-      const startAngle = Math.PI / 2 - arcAngle / 2;
+    function positionCards(progress = 0) {
+      const radius = getRadius();
+      const totalTravel = 1 + totalCards / 7.5;
+      const adjustedProgress = (progress * totalTravel - 1) * 0.75;
 
-      function positionCards(progress = 0) {
-        const radius = getRadius();
-        const totalTravel = 1 + totalCards / 7.5;
-        const adjustedProgress = (progress * totalTravel - 1) * 0.75;
+      cards.forEach((card, i) => {
+        const normalized = (totalCards - 1 - i) / totalCards;
+        const cardProgress = normalized + adjustedProgress;
+        const angle = startAngle + arcAngle * cardProgress;
 
-        cards.forEach((card, i) => {
-          const normalizedProgress = (totalCards - 1 - i) / totalCards;
-          const cardProgress = normalizedProgress + adjustedProgress;
-          const angle = startAngle + arcAngle * cardProgress;
-
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
-          const rotation = (angle - Math.PI / 2) * (180 / Math.PI);
-
-          gsap.set(card, {
-            x,
-            y: -y + radius,
-            rotation: -rotation,
-            transformOrigin: "center center",
-          });
+        gsap.set(card, {
+          x: Math.cos(angle) * radius,
+          y: -Math.sin(angle) * radius + radius,
+          rotation: -(angle - Math.PI / 2) * (180 / Math.PI),
+          force3D: true,
         });
-      }
+      });
+    }
 
+    function updateCounter(progress) {
+      const index = Math.min(
+        totalCards - 1,
+        Math.floor(progress * totalCards)
+      );
 
-      positionCards(0);
+      const lineHeight =
+        countContainer.querySelector("h1")?.offsetHeight || 0;
 
+      gsap.to(countContainer, {
+        y: lineHeight - index * lineHeight,
+        duration: 0.3,
+        ease: "power1.out",
+        overwrite: true,
+      });
+    }
+
+    positionCards(0);
+
+    const mm = gsap.matchMedia();
+
+   
+    mm.add("(min-width: 1024px)", () => {
       ScrollTrigger.create({
         trigger: stickySection,
         start: "top top",
-        end: `+=${stickyHeight}`,
+        end: `+=${window.innerHeight * (totalCards - 2)}`,
         pin: true,
-        pinSpacing: true,
+        scrub: 0.4,
         onUpdate: (self) => {
-          const progress = self.progress;
-
-          positionCards(progress);
-
-          const currentIndex = Math.floor(progress * totalCards);
-          const lineHeight = countContainer.querySelector("h1").offsetHeight;
-          const targetY = lineHeight - currentIndex * lineHeight;
-
-          gsap.to(countContainer, {
-            y: targetY,
-            duration: 0.25,
-            ease: "power1.out",
-            overwrite: true,
-          });
+          positionCards(self.progress);
+          updateCounter(self.progress);
         },
       });
-    },
-    { scope: stickySectionRef }
-  );
+    });
+
+  
+    mm.add("(min-width: 640px) and (max-width: 1023px)", () => {
+      ScrollTrigger.create({
+        trigger: stickySection,
+        start: "top top",
+        end: `+=${window.innerHeight * (totalCards - 1.5)}`,
+        pin: true,
+        scrub: 0.2,
+        pinType: "fixed",
+        onUpdate: (self) => {
+          positionCards(self.progress);
+          updateCounter(self.progress);
+        },
+      });
+    });
+
+   
+    mm.add("(max-width: 639px)", () => {
+      ScrollTrigger.create({
+        trigger: stickySection,
+        start: "top top",
+        end: `+=${window.innerHeight * (totalCards - 1)}`,
+        pin: true,
+        scrub: false, 
+        pinType: "fixed",
+        onUpdate: (self) => {
+          positionCards(self.progress);
+          updateCounter(self.progress);
+        },
+      });
+    });
+
+    return () => mm.revert(); 
+  }, { scope: stickySectionRef });
+  
 
   return (
     <section
       id="projects"
       ref={stickySectionRef}
-      className="steps relative w-screen h-screen overflow-x-hidden overflow-y-visible bg-[#E7E5D9] p-4"
+      className="steps relative w-screen h-svh  overflow-hidden  bg-[#E7E5D9] p-4"
     >
  
       <div className="step-counter absolute flex flex-col space-y-2">
